@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Car Search</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<header class="nav">
+
+
+
+
+</header>
+<body>
+    <section class="mainPage">
+    <h1 class="banner">Find the car that fits your life</h1>
+    <h3></h3>
+
+    <Form class="mainSearch">
+        <fieldset class="mainSearch">
+            <label for="year">Year: </label>
+            <input value='2014' type="number" id="year" maxlength="4" minlength="4" />
+            <label for="make">Make: </label>
+            <input value='ford' type="text" id="make"/>
+            <label for="model">Model: </label>
+            <input value='focus' type="text" id="model"/>
+            <label for="location">Location: </label>
+            <input value='63367' type="text" id="loc"/>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </Form>
+    </section>
+
+    <section class="resultsPage">
+    <div class="wrapper">
+            <div class="filtersArea">
+                    <section class="filtersHeader">
+                    <h1 id="filtersText">Filters</h1>
+                    </section>
+                        <form class="filter_form">
+                            <section class="body_types">
+                            <div id="bodyRow">
+                            <input type="checkbox" id="body_coupe" class="coupe" />
+                            <label for="body_coupe" ><img src="Assets/Body Styles/coupe-car.png" /></label>
+                            <input type="checkbox" id="body_sedan" class="sedan" />
+                            <label for="body_sedan" ><img src="Assets/Body Styles/sedan-car-model.png" /></label>
+                            </div>
+
+                            <div id='bodyRow'>
+                            <input type="checkbox" id="body_hatch" class="hatch" />
+                            <label for='body_hatch'><img src="Assets/Body Styles/hatch.png" /></label>
+                            <input type="checkbox" id="body_SUV" class="suv" />
+                            <label for="body_SUV" ><img src="Assets/Body Styles/car-suv.png" /></label>
+                            </div>
+
+                            <div id="bodyRow">
+                            <input type="checkbox" id="body_van" class="van" />
+                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /></label>
+                            <input type="checkbox" id="body_truck" class="truck" />
+                            <label for="body_truck" ><img src="Assets/Body Styles/pickup.png" /></label>
+                            </div>
+                        </section>
+                        </form>
+                    <h1></h1>
+                </div>
+
+        <section class="displayArea">
+        <section class="resultsLegend">
+            <h1 class="numberResults">Search Results ()</h1>
+        </section>
+            <ul class="results">
+                   
+            <li class="resultFrame">
+                        
+             <section class="pictureContainer">
+                    <img class="image" src="Assets/nophoto.png" />
+            </section>
+                        
+           <section class="details">
+            <div class='titleContainer'>
+                <h1 class="title">${DATA.title}</h1>
+             </div>
+
+             <div class="rows">
+            <section class="row row1">
+                <label for="miles">miles:</label>
+                <h3 class="miles">${DATA.miles}</h3>
+
+                <label for="trim">Trim:</label>
+                <h3 class="trim">${DATA.trim} </h3>
+            </section>
+
+            <section class="row row2">
+                <label for="engine">Engine:</label>
+                <h3 class="engine">${DATA.engine}</h3>
+
+                <label for="color">Color:</label>
+                <h3 class="color">${DATA.color}</h3>
+            </section>
+
+            <section class="row row3">
+                <label for="vin">VIN #:</label>
+                <h3 class="vin">${DATA.vin}</h3>
+                <label for="dealer">Dealership:</label>
+                <h3 class="dealer">${DATA.dealer}</h3>
+            </section>
+            </div>
+        </section>
+
+        <section class="links">
+                    <button onclick="DATA.dealerWeb" class="dealership">Contact Dealer</button>
+                    <h1 class="price">$ ${DATA.price} </h1>
+     </section>
+            </li>
+
+
+
+            </ul>
+        
+        
+        
+          </section>  
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
