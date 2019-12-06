@@ -15,7 +15,7 @@ const key = 'vA4BcNYyp4rFjWdgi1qEKuxZ2AKffyzF';
 function watchUser(){
     $('.mainSearch').on('submit', function(e){
         e.preventDefault();
-        
+        watchFilters();
        /* const year = $('#year').value();
         const make = $('#make').value();
         const model = $('#model').value();
@@ -25,7 +25,8 @@ function watchUser(){
             year : '&year=' + $('#year').val(),
             make : '&make=' +  $('#make').val(),
             model : '&model=' + $('#model').val(),
-            loc : '&zip=' + $('#loc').val()
+            loc : '&zip=' + $('#loc').val(),
+            distance : '&radius=' + 200,
         }
         //setURL(params);
        getResults(params);
@@ -55,7 +56,7 @@ function getResults(params){
 function setURL(params){
     console.log(params);
     let apiSearch = 'https://marketcheck-prod.apigee.net/v1/search?api_key=' +key;
-    let filters = '&radius=200&car_type=used&start=0&rows=50&sort_order=asc'
+    let filters = `&start=0&rows=50&sort_order=asc`
     let url = userOptions() + filters;
 
     function userOptions(){
@@ -74,7 +75,7 @@ function displayResults(ResponseJson){
     $('.results').empty();
     console.log(ResponseJson.listings.length);
     range_disp.value = '200';
-    $('.numberResults').html(`Search Results (${ResponseJson.listings.length})`);
+    $('.numberResults').html(`Search Results <mark class="number">(${ResponseJson.listings.length})</mark>`);
     for (let i = 0; i < ResponseJson.listings.length; i++){
         let j = ResponseJson.listings[i];
         const DATA = {
@@ -146,4 +147,47 @@ function displayResults(ResponseJson){
 function updateSlider(){
     range_disp.value = rangeSlider.value;
     
+}
+
+function watchFilters(url){
+    $('.filter_form').on('submit', function(e){
+        e.preventDefault();
+
+        let newParams = {
+            year : '&year=' + $('#year').val(),
+            make : '&make=' +  $('#make').val(),
+            model : '&model=' + $('#model').val(),
+            loc : '&zip=' + $('#loc').val(),
+
+            bodyTypes : getBodyTypes(),
+            distance : '&radius=' + $('#range_disp').val(),
+            priceRange : `&price_range=${$('#priceMin').val()}-${$('#priceMax').val()}`,
+            milesRange : `&miles_range=${$('#mileseMin').val()}-${$('#mileseMax').val()}`,
+            condition : '&car_type=' + getType(),
+        }
+        console.log(newParams);
+        getResults(newParams);
+    })
+
+function getBodyTypes(){
+    let type = '&body_type=';
+    $('input[name="bodytype"]:checked').each(function() {
+        type += this.value + ',';
+     });
+     let string = type.substring(0, type.length - 1);
+     return string;
+}
+function getType(){
+    let selected = $('input[name="condition"]:checked').val();
+    console.log(selected)
+    return selected;
+}
+
+
+
+}
+
+function updateFilters(url){
+   // new url = https://marketcheck-prod.apigee.net/v1/search?api_key=vA4BcNYyp4rFjWdgi1qEK…fined-undefined%car_type=used&car_type=used&start=0&rows=50&sort_order=asc
+  // https://marketcheck-prod.apigee.net/v1/search?api_key=vA4BcNYyp4rFjWdgi1qEKuxZ2AKffyzF&year=2014&make=ford&model=focus&zip=63367&body_type&radius=150&price_range=-&miles_range=undefined-undefined%car_type=used&car_type=used&start=0&rows=50&sort_order=asc
 }

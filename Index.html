@@ -27,7 +27,7 @@
             <input value='ford' type="text" id="make"/>
             <label for="model">Model: </label>
             <input value='focus' type="text" id="model"/>
-            <label for="location">Location: </label>
+            <label for="location">Location(zip): </label>
             <input value='63367' type="text" id="loc"/>
             <button type="submit">Submit</button>
         </fieldset>
@@ -49,31 +49,37 @@
                     <h1 id="filtersText">Filters</h1>
                     </section>
                         <form class="filter_form">
-                                <label class='Header' id="bodyTypeLabel">Body Type</label>
                             <section class="body_types">
                             
                             <div id="bodyRow">
-                            <input type="checkbox" id="body_coupe" class="coupe" />
+                            <input name="bodytype" type="checkbox" id="body_coupe" class="coupe" value="coupe"/>
                             <label for="body_coupe" ><img src="Assets/Body Styles/coupe-car.png" /><h3>Coupe</h3></label>
-                            <input type="checkbox" id="body_sedan" class="sedan" />
+                            <input name="bodytype" type="checkbox" id="body_sedan" class="sedan"  value="sedan"/>
                             <label for="body_sedan" ><img src="Assets/Body Styles/sedan-car-model.png" /><h3>Sedan</h3></label>
-                            <input type="checkbox" id="body_van" class="van" />
-                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /><h3>Van</h3></label>
+ 
                             </div>
 
                             <div id='bodyRow'>
-                            <input type="checkbox" id="body_hatch" class="hatch" />
+                            <input name="bodytype" type="checkbox" id="body_hatch" class="hatch" value="hatchback"/>
                             <label for='body_hatch'><img src="Assets/Body Styles/hatch.png" /><h3>Hatch</h3></label>
-                            <input type="checkbox" id="body_SUV" class="suv" />
+                            <input name="bodytype" type="checkbox" id="body_SUV" class="suv" value="suv"/>
                             <label for="body_SUV" ><img src="Assets/Body Styles/car-suv.png" /><h3>SUV</h3></label>
-                            <input type="checkbox" id="body_truck" class="truck" />
+                        </div>
+
+                            <div id='bodyRow'>
+                            <input name="bodytype" type="checkbox" id="body_truck" class="truck" value="pickup" />
                             <label for="body_truck" ><img src="Assets/Body Styles/pickup.png" /><h3>Truck</h3></label>
+                            <input name="bodytype" type="checkbox" id="body_van" class="van" value="van"/>
+                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /><h3>Van</h3></label>
                         </div>
                         </section>
+                        <div class="headerContainer">
+                                <Label class="Header" id="distanceLabel">Distance</Label><br>
+                        </div>
                         <section class="distance">
-                            <Label class="Header" id="distanceLabel">Distance</Label><br>
+                           
                             <label id='rangeLabel' for='rangeSlider'><output id="range_disp"> </output> miles</label>
-                            <input id="rangeSlider" type="range" min="50" max="500" value="200" step="50" list="steplist" oninput="updateSlider();">
+                            <input id="rangeSlider" type="range" min="50" max="500" step="50" list="steplist" oninput="updateSlider();">
 <datalist id="steplist">
     <option>25</option>
     <option>50</option>
@@ -82,13 +88,51 @@
     <option>500</option>
 </datalist>
                         </section>
+
+
+                        <div class="headerContainer">
+                                <Label class="Header" id="distanceLabel">Miles</Label><br>
+                        </div>
+                        <section class="priceMiles" >
+                                <div class="rangeContainer">
+                            <input type="number" id="milesMin" placeholder="min"> 
+                            <input type="number" id="milesMax" placeholder="max"> 
+                                </div>
+                            </section>
+                            <div class="headerContainer">
+                                    <Label class="Header" id="distanceLabel">Price</Label><br>
+                            </div>
+                            <section class="priceMiles" id="priceSection">
+                            <div class="rangeContainer">
+                            <input type="number" id="priceMin" placeholder="min"> 
+                            <input type="number" id="priceMax" placeholder="max"> 
+                        </div>
+                        </section>
+
+                        <div class="headerContainer">
+                                <Label class="Header" id="carTypeLabel">Type</Label><br>
+                        </div>
+                        <section class="carType">
+                        
+                        <label for="newType"><input type="radio" name='condition' value="new" id="newType"> New
+                        </label>
+
+                     
+                        <label for="usedType"><input type="radio" name='condition' value="used" id="usedType"> Used
+                        </label>
+
+                        <label for="certifiedType"><input type="radio" name='condition' value="certified" id="certifiedType"> Certified
+                        </label>
+                        </section>
+
+                        <button id='filterSubmit' type="submit">Apply Filters</button>
                         </form>
                     <h1></h1>
                 </div>
 
         <section class="displayArea">
         <section class="resultsLegend">
-            <h1 class="numberResults">Search Results ()</h1>
+            <h1 class="numberResults">Search Results <mark class="number">()</mark></h1>
         </section>
             <ul class="results">
                    

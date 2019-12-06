@@ -5,7 +5,9 @@
 }
 body{
     font-family: 'Roboto', sans-serif;
-    background: #f4f6ff;
+    background: #F5F6F8;
+    --shadow: 0 50px 100px rgba(50, 50, 93, 0.05),
+    0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -51,8 +53,13 @@ width: 100%;
     display: flex;
     flex-direction: row;
     height: 200%;
-    padding: 0 10px;
+    padding: 0 20px;
+    overflow: hidden;
 
+}
+.number {
+    color: #939CA8;
+    background: none;
 }
 .numberResults {
     font-size: 20px;
@@ -68,10 +75,11 @@ height: fit-content;
   top: 0;
     display: flex;
     margin: auto;
-    height: 10vh;
+    height: 5vh;
     width: 100%;
-    border-radius: 16px;
+    border-radius: 10px;
     background: #fff;
+    box-shadow: var(--shadow);
 }
 .displayArea {
     position: absolute;
@@ -80,11 +88,13 @@ height: fit-content;
     display: flex;
     flex-direction: column;
     margin-top: 2vh;
-    width: 70%;
+    margin-right: 10px;
+    width: 75%;
     height: 100%;
     overflow: auto;
-    border-radius: 16px;
+    border-radius: 15px;
     background: #fff;
+    box-shadow: var(--shadow);
 }
 .results{
 width: 100%;
@@ -100,7 +110,7 @@ padding: 20px 0 20px 0;
 }
 .results li label {
     font-size: 15px;
-    color: darkgrey;
+    color: #939CA8;
 
 }
 .results li h3 {
@@ -109,12 +119,12 @@ padding: 20px 0 20px 0;
 }
 .title{
     font-size: 32px;
-    color: rgb(38, 107, 255);
+    color: #4A99E7;
     margin: 20px 0;
 }
 .image{
-    border-radius: 30px;
-    width: 300px;
+    border-radius: 8px;
+    width: 310px;
     height: 230px;
 }
 .pictureContainer{
@@ -137,20 +147,20 @@ padding: 20px 0 20px 0;
     border-left: 1px solid lightgray;
 }
 .dealership{
-    background: rgb(3, 199, 62);
+    background: #64D370;
     cursor: pointer;
     border: none;
     padding: 10px 25px;
     margin: 5px 0;
-    border-radius: 16px;
+    border-radius: 6px;
     color: #fff;
     text-align: center;
 }
 .price{
-    background: lightgray;
+    background: #F3F4F5;
     padding: 10px 25px;
     margin: 5px 0;
-    border-radius: 16px;
+    border-radius: 6px;
     text-align: center;
 }
 .rows{
@@ -167,11 +177,13 @@ position: sticky;
 position: -webkit-sticky;
 bottom: 0;
 z-index: 3;
-width: 28%;
+width: 20%;
 margin-top: 2vh;
-min-height: 98vh;
-border-radius: 16px;
+height: 100vh;
+border-radius: 15px;
 margin-right: 10px;
+box-shadow: var(--shadow);
+overflow: auto;
 }
 
 
@@ -198,7 +210,9 @@ margin-right: 10px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: fit-content;
+    height: fit-content;  
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
 }
 
 .body_types input{
@@ -209,11 +223,11 @@ margin-right: 10px;
 }
 .body_types label{
     width: auto;
-    border: 1px solid black;
+    border: none;
     border-radius: 16px;
     padding: 20px;
     margin: 10px 10px 0 0 ;
-    background: lightgray;
+    background: #F3F4F5;
     position: relative;
 }
 .body_types label img {
@@ -234,20 +248,19 @@ margin-right: 10px;
 }
 
 :checked + label {
-    border: 1px solid yellow;
-    background: yellow;
+    border: 1px solid #649AC6;
+    background: #F7FCFF;
 }
 
 #bodyRow {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
 }
 
 #rangeSlider {
     width: 80%; 
     height: 2px;
-    background: #d3d3d3;
+    background: #E3E8ED;
     -webkit-appearance: none; 
     appearance: none;
     outline: none;
@@ -259,12 +272,18 @@ margin-right: 10px;
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #4CAF50;
+    background: #489AEB;
     cursor: pointer;
 }
-
+.headerContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+padding: 10px 0 0 20px;
+}
 .Header {
-    color: lightgray;
+    color: #8C92A0;
     font-size: 20px;
 }
 #rangeLabel {
@@ -275,8 +294,56 @@ margin-right: 10px;
     flex-direction: column;
     height: fit-content;
     width: 80%;
-    border-top: 1px solid lightgray;
+
     border-bottom: 1px solid lightgray;
     padding: 20px 0;
-    margin: 20px 0;
+
+}
+
+.rangeContainer {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    width: 100%;
+}
+.priceMiles {
+    display: flex; 
+    flex-direction: column;
+    width: 80%;
+   align-items: center;
+}
+.priceMiles input {
+    width: 45%;
+    margin: 10px 5px;
+}
+#priceSection {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.carType {
+    display: inline-flex;
+    flex-direction: column;
+    width: 80%;
+    
+}
+
+#carTypeLabel {
+    margin-bottom: 20px;
+}
+
+.carType label {
+    margin-bottom: 8px;
+}
+
+#filterSubmit {
+    width: 80%;
+    background: #489AEB;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    border-radius: 6px;
+    margin: 10px 0;
+    color: #fff;
 }
