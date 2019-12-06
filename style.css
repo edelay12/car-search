@@ -83,7 +83,7 @@ height: fit-content;
 }
 .displayArea {
     position: absolute;
-    right: 0px;
+    right: 10px;
     padding: 0 20px 0px 20px;
     display: flex;
     flex-direction: column;
@@ -143,15 +143,16 @@ padding: 20px 0 20px 0;
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 15px;
     border-left: 1px solid lightgray;
 }
+
 .dealership{
     background: #64D370;
     cursor: pointer;
     border: none;
     padding: 10px 25px;
-    margin: 5px 0;
+    margin: 10px 0;
     border-radius: 6px;
     color: #fff;
     text-align: center;
@@ -159,7 +160,7 @@ padding: 20px 0 20px 0;
 .price{
     background: #F3F4F5;
     padding: 10px 25px;
-    margin: 5px 0;
+    margin: 10px 0;
     border-radius: 6px;
     text-align: center;
 }
@@ -184,7 +185,11 @@ border-radius: 15px;
 margin-right: 10px;
 box-shadow: var(--shadow);
 overflow: auto;
+-ms-overflow-style: none;
 }
+.filtersArea::-webkit-scrollbar {
+    display: none;
+  }
 
 
 /*---------- filters ----------- */
