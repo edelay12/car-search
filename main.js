@@ -73,7 +73,8 @@ return url;
 function displayResults(ResponseJson){
     $('.results').empty();
     console.log(ResponseJson.listings.length);
-    $('.numberResults').text(`Search Results (${ResponseJson.listings.length})`);
+    range_disp.value = '200';
+    $('.numberResults').html(`Search Results (${ResponseJson.listings.length})`);
     for (let i = 0; i < ResponseJson.listings.length; i++){
         let j = ResponseJson.listings[i];
         const DATA = {
@@ -140,4 +141,9 @@ function displayResults(ResponseJson){
 
     }
 
+}
+
+function updateSlider(){
+    range_disp.value = rangeSlider.value;
+    
 }

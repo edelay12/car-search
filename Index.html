@@ -35,33 +35,52 @@
     </section>
 
     <section class="resultsPage">
+        <section class="searchArea">
+                <div class="searchBar">
+
+                        <h1>search</h1>
+                    </div>
+
+        </section>
+       
     <div class="wrapper">
             <div class="filtersArea">
                     <section class="filtersHeader">
                     <h1 id="filtersText">Filters</h1>
                     </section>
                         <form class="filter_form">
+                                <label class='Header' id="bodyTypeLabel">Body Type</label>
                             <section class="body_types">
+                            
                             <div id="bodyRow">
                             <input type="checkbox" id="body_coupe" class="coupe" />
-                            <label for="body_coupe" ><img src="Assets/Body Styles/coupe-car.png" /></label>
+                            <label for="body_coupe" ><img src="Assets/Body Styles/coupe-car.png" /><h3>Coupe</h3></label>
                             <input type="checkbox" id="body_sedan" class="sedan" />
-                            <label for="body_sedan" ><img src="Assets/Body Styles/sedan-car-model.png" /></label>
+                            <label for="body_sedan" ><img src="Assets/Body Styles/sedan-car-model.png" /><h3>Sedan</h3></label>
+                            <input type="checkbox" id="body_van" class="van" />
+                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /><h3>Van</h3></label>
                             </div>
 
                             <div id='bodyRow'>
                             <input type="checkbox" id="body_hatch" class="hatch" />
-                            <label for='body_hatch'><img src="Assets/Body Styles/hatch.png" /></label>
+                            <label for='body_hatch'><img src="Assets/Body Styles/hatch.png" /><h3>Hatch</h3></label>
                             <input type="checkbox" id="body_SUV" class="suv" />
-                            <label for="body_SUV" ><img src="Assets/Body Styles/car-suv.png" /></label>
-                            </div>
-
-                            <div id="bodyRow">
-                            <input type="checkbox" id="body_van" class="van" />
-                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /></label>
+                            <label for="body_SUV" ><img src="Assets/Body Styles/car-suv.png" /><h3>SUV</h3></label>
                             <input type="checkbox" id="body_truck" class="truck" />
-                            <label for="body_truck" ><img src="Assets/Body Styles/pickup.png" /></label>
-                            </div>
+                            <label for="body_truck" ><img src="Assets/Body Styles/pickup.png" /><h3>Truck</h3></label>
+                        </div>
+                        </section>
+                        <section class="distance">
+                            <Label class="Header" id="distanceLabel">Distance</Label><br>
+                            <label id='rangeLabel' for='rangeSlider'><output id="range_disp"> </output> miles</label>
+                            <input id="rangeSlider" type="range" min="50" max="500" value="200" step="50" list="steplist" oninput="updateSlider();">
+<datalist id="steplist">
+    <option>25</option>
+    <option>50</option>
+    <option>100</option>
+    <option>200</option>
+    <option>500</option>
+</datalist>
                         </section>
                         </form>
                     <h1></h1>
@@ -119,7 +138,6 @@
 
 
             </ul>
-        
         
         
           </section>  
