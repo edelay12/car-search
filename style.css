@@ -30,6 +30,9 @@ input {
     width: 100vw;
     justify-content: space-around;
 }
+#locationLabel {
+    margin: 30px 0 10px;
+}
 
 .mainPage {
 height: 100vh;

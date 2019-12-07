@@ -27,15 +27,21 @@ function watchUser(){
             model : '&model=' + $('#model').val(),
             loc : '&zip=' + $('#loc').val(),
             distance : '&radius=' + 200,
-        }
+            city : '&city=' + $('#city').val(),
+            state : '&state=' + $('#state').val(),
+            
+        } 
         //setURL(params);
        getResults(params);
     })
 }
 
 function getResults(params){
+    if($('#loc').val() == undefined || 0 || ''){
+        delete params.loc;
+    }
     const url = setURL(params);
-
+    
     fetch(url)
     .then(Response => { 
         if(Response.ok) {
