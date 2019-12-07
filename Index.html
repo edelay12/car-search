@@ -7,6 +7,8 @@
     <title>Car Search</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+
 </head>
 <header class="nav">
 
@@ -31,7 +33,7 @@
             <label for="location">Zip: </label>
             <input value='63367' type="text" id="zip" placeholder="ex. 63367"/>
             <label for='location'>City(ex. Los Angeles) and State(ex. CA, MO): </label>
-            <input value='saint louis' type="text" name="city" id="city" placeholder="City"/>
+            <input type="text" name="city" class='city' id="city" placeholder="City"/>
             <input value='mo' type="text" id="state" placeholder="State" />
             <button type="submit">Submit</button>
         </fieldset>
@@ -197,5 +199,6 @@
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZglXO8OS4H9lJht8qSuktFJ24oeu70n0&libraries=places&callback=initialize"></script>
 </body>
 </html>

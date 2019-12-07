@@ -255,3 +255,7 @@ function validator(e){
     else return e.val();
 }
 
+function initialize() {
+    let input = document.getElementById('city');
+    new google.maps.places.Autocomplete(input);
+  }
