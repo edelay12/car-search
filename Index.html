@@ -1,204 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Car Search</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-
-</head>
-<header class="nav">
-
-
-
-
-</header>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css">
+    <script
+      src="https://kit.fontawesome.com/4de2361912.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <header class="nav"></header>
+  <body>
     <section class="mainPage">
-    <h1 class="banner">Find the car that fits your life</h1>
-    <h3></h3>
+      <h1 class="banner">Find the car that fits your life</h1>
+      <h3></h3>
 
-    <Form class="mainSearch">
+      <form class="mainSearch">
         <fieldset class="mainSearch">
-            <label for="year">Year: </label>
-            <input value='2014' type="number" id="year" maxlength="4" minlength="4" />
-            <label for="make">Make: </label>
-            <input value='ford' type="text" id="make"/>
-            <label for="model">Model: </label>
-            <input value='focus' type="text" id="model"/>
-           <!-- <label id='locationLabel' for="location">Location </label>-->
-            <label for="location">Zip: </label>
-            <input value='63367' type="text" id="zip" placeholder="ex. 63367"/>
-            <label for='location'>City(ex. Los Angeles) and State(ex. CA, MO): </label>
-            <input type="text" name="city" class='city' id="city" placeholder="City"/>
-            <input value='mo' type="text" id="state" placeholder="State" />
-            <button type="submit">Submit</button>
+          <label for="year">Year: </label>
+          <input
+            value=""
+            type="number"
+            id="year"
+            maxlength="4"
+            minlength="4"
+          />
+          <label for="make">Make: </label>
+          <input value="" type="text" id="make" />
+          <label for="model">Model: </label>
+          <input value="" type="text" id="model" />
+          <label for="location">Location: </label>
+          <input
+            value=""
+            type="text"
+            class="city"
+            id="city"
+            placeholder=""
+            required
+          />
+          <button type="submit">Submit</button>
         </fieldset>
-    </Form>
+      </form>
+      <h1 id="js-error"></h1>
     </section>
+
+
+</section>
+
 
     <section class="resultsPage">
-        <section class="searchArea">
-                <div class="searchBar">
-
-                        <h1>search</h1>
-                    </div>
-
-        </section>
-       
-    <div class="wrapper">
-            <div class="filtersArea">
-                    <section class="filtersHeader">
-                    <h1 id="filtersText">Filters</h1>
-                    </section>
-                        <form class="filter_form">
-                            <section class="body_types">
-                            
-                            <div id="bodyRow">
-                            <input name="bodytype" type="checkbox" id="body_coupe" class="coupe" value="coupe"/>
-                            <label for="body_coupe" ><img src="Assets/Body Styles/coupe-car.png" /><h3>Coupe</h3></label>
-                            <input name="bodytype" type="checkbox" id="body_sedan" class="sedan"  value="sedan"/>
-                            <label for="body_sedan" ><img src="Assets/Body Styles/sedan-car-model.png" /><h3>Sedan</h3></label>
- 
-                            </div>
-
-                            <div id='bodyRow'>
-                            <input name="bodytype" type="checkbox" id="body_hatch" class="hatch" value="hatchback"/>
-                            <label for='body_hatch'><img src="Assets/Body Styles/hatch.png" /><h3>Hatch</h3></label>
-                            <input name="bodytype" type="checkbox" id="body_SUV" class="suv" value="suv"/>
-                            <label for="body_SUV" ><img src="Assets/Body Styles/car-suv.png" /><h3>SUV</h3></label>
-                        </div>
-
-                            <div id='bodyRow'>
-                            <input name="bodytype" type="checkbox" id="body_truck" class="truck" value="pickup" />
-                            <label for="body_truck" ><img src="Assets/Body Styles/pickup.png" /><h3>Truck</h3></label>
-                            <input name="bodytype" type="checkbox" id="body_van" class="van" value="van"/>
-                            <label for="body_van" ><img src="Assets/Body Styles/minivan-car.png" /><h3>Van</h3></label>
-                        </div>
-                        </section>
-                        <div class="headerContainer">
-                                <Label class="Header" id="distanceLabel">Distance</Label><br>
-                        </div>
-                        <section class="distance">
-                           
-                            <label id='rangeLabel' for='rangeSlider'><output id="range_disp"> </output> miles</label>
-                            <input id="rangeSlider" type="range" min="50" max="500" step="50" list="steplist" oninput="updateSlider();">
-<datalist id="steplist">
-    <option>25</option>
-    <option>50</option>
-    <option>100</option>
-    <option>200</option>
-    <option>500</option>
-</datalist>
-                        </section>
-
-
-                        <div class="headerContainer">
-                                <Label class="Header" id="distanceLabel">Miles</Label><br>
-                        </div>
-                        <section class="priceMiles" >
-                                <div class="rangeContainer">
-                            <input type="number" class="minMiles" id="milesMin" placeholder="min"> 
-                            <input type="number" class="maxMiles" id="milesMax" placeholder="max"> 
-                                </div>
-                            </section>
-                            <div class="headerContainer">
-                                    <Label class="Header" id="distanceLabel">Price</Label><br>
-                            </div>
-                            <section class="priceMiles" id="priceSection">
-                            <div class="rangeContainer">
-                            <input type="number" class="minPrice" id="priceMin" placeholder="min"> 
-                            <input type="number" class="maxPrice" id="priceMax" placeholder="max"> 
-                        </div>
-                        </section>
-
-                        <div class="headerContainer">
-                                <Label class="Header" id="carTypeLabel">Type</Label><br>
-                        </div>
-                        <section class="carType">
+      <section class="searchArea">
+        <div class="searchBar">
+            <div class="searchIconContainer">
+                    <img class="searchIcon" src="Assets/search.png" alt="search">
+            </div>
+              
+              <div class="labelsContainer"> 
+                    <ul class="labels">
                         
-                        <label for="newType"><input type="radio" name='condition' value="new" id="newType"> New
-                        </label>
+                          </ul> 
+              </div>
+         
+          <div class="filterSearchContainer">
 
-                     
-                        <label for="usedType"><input type="radio" name='condition' value="used" id="usedType"> Used
-                        </label>
+                <label for="toggle filters" class="filterToggle"
+                ><img class='filterIcon' src="Assets/slider.png" alt="filter icon"> Filters</label>
+                <label for="new search" class="newSearch"
+                >New Search</label>
 
-                        <label for="certifiedType"><input type="radio" name='condition' value="certified" id="certifiedType"> Certified
-                        </label>
-                        </section>
+          </div>
+          
+      </div>
+      </section>
 
-                        <button id='filterSubmit' type="submit">Apply Filters</button>
+      <section class="newSearchPage">
+                    <form class="newSearchForm">
+                            
+                            <fieldset class="newSearchFrame">
+                                    <h1 id="js-error"></h1>
+                              <label for="year">Year: </label>
+                              <input 
+                                value=""
+                                type="number"
+                                id="yearNewSearch"
+                                maxlength="4"
+                                minlength="4"
+                              />
+                              <label for="make">Make: </label>
+                              <input value="" type="text" id="makeNewSearch" />
+                              <label for="model">Model: </label>
+                              <input value="" type="text" id="modelNewSearch" />
+                              <label for="location">Location: </label>
+                              <input 
+                                value=""
+                                type="text"
+                                class="cityNewSearch"
+                                id="cityNewSearch"
+                                placeholder=""
+                                required
+                              />
+                              <button type="submit" id='newSearchSubmit'>Submit</button>
+                            </fieldset>
                         </form>
-                    <h1></h1>
-                </div>
+      </section>
+
+      <div class="wrapper">
+        <div class="filtersArea">
+          <section class="filtersHeader">
+            <h1 id="filtersText">Filters</h1>
+            <h1 id="filtersText" class="filterToggle">---</h1>
+          </section>
+          <form class="filter_form">
+            <section class="body_types">
+              <div id="bodyRow">
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_coupe"
+                  class="coupe"
+                  value="coupe"
+                />
+                <label for="body_coupe"
+                  ><img src="Assets/Body Styles/coupe-car.png" />
+                  <h3>Coupe</h3></label
+                >
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_sedan"
+                  class="sedan"
+                  value="sedan"
+                />
+                <label for="body_sedan"
+                  ><img src="Assets/Body Styles/sedan-car-model.png" />
+                  <h3>Sedan</h3></label
+                >
+              </div>
+
+              <div id="bodyRow">
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_hatch"
+                  class="hatch"
+                  value="hatchback"
+                />
+                <label for="body_hatch"
+                  ><img src="Assets/Body Styles/hatch.png" />
+                  <h3>Hatch</h3></label
+                >
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_SUV"
+                  class="suv"
+                  value="suv"
+                />
+                <label for="body_SUV"
+                  ><img src="Assets/Body Styles/car-suv.png" />
+                  <h3>SUV</h3></label
+                >
+              </div>
+
+              <div id="bodyRow">
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_truck"
+                  class="truck"
+                  value="pickup"
+                />
+                <label for="body_truck"
+                  ><img src="Assets/Body Styles/pickup.png" />
+                  <h3>Truck</h3></label
+                >
+                <input
+                  name="bodytype"
+                  type="checkbox"
+                  id="body_van"
+                  class="van"
+                  value="van"
+                />
+                <label for="body_van"
+                  ><img src="Assets/Body Styles/minivan-car.png" />
+                  <h3>Van</h3></label
+                >
+              </div>
+            </section>
+            <div class="headerContainer">
+              <label class="Header" id="distanceLabel">Distance</label><br />
+            </div>
+            <section class="distance">
+              <label id="rangeLabel" for="rangeSlider"
+                ><output id="range_disp"> </output> miles</label
+              >
+              <input
+                id="rangeSlider"
+                type="range"
+                min="50"
+                max="500"
+                step="50"
+                list="steplist"
+                oninput="updateSlider();"
+              />
+              <datalist id="steplist">
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+                <option>500</option>
+              </datalist>
+            </section>
+
+            <div class="headerContainer">
+              <label class="Header" id="distanceLabel">Miles</label><br />
+            </div>
+            <section class="priceMiles">
+              <div class="rangeContainer">
+                <input
+                  type="number"
+                  class="minMiles"
+                  id="milesMin"
+                  placeholder="min"
+                />
+                <input
+                  type="number"
+                  class="maxMiles"
+                  id="milesMax"
+                  placeholder="max"
+                />
+              </div>
+            </section>
+            <div class="headerContainer">
+              <label class="Header" id="distanceLabel">Price</label><br />
+            </div>
+            <section class="priceMiles" id="priceSection">
+              <div class="rangeContainer">
+                <input
+                  type="number"
+                  class="minPrice"
+                  id="priceMin"
+                  placeholder="min"
+                />
+                <input
+                  type="number"
+                  class="maxPrice"
+                  id="priceMax"
+                  placeholder="max"
+                />
+              </div>
+            </section>
+
+            <div class="headerContainer">
+              <label class="Header" id="carTypeLabel">Type</label><br />
+            </div>
+            <section class="carType">
+              <label for="newType"
+                ><input
+                  type="radio"
+                  name="condition"
+                  value="new"
+                  id="newType"
+                />
+                New
+              </label>
+
+              <label for="usedType"
+                ><input
+                  type="radio"
+                  name="condition"
+                  value="used"
+                  id="usedType"
+                />
+                Used
+              </label>
+
+              <label for="certifiedType"
+                ><input
+                  type="radio"
+                  name="condition"
+                  value="certified"
+                  id="certifiedType"
+                />
+                Certified
+              </label>
+            </section>
+
+            <div class="headerContainer">
+              <label class="Header" id="trimLabel">Trim</label><br />
+            </div>
+
+            <section class="trimArea">
+              <ul class="trims"></ul>
+            </section>
+            <button id="filterSubmit" type="submit">Apply Filters</button>
+          </form>
+          <h1></h1>
+        </div>
 
         <section class="displayArea">
-        <section class="resultsLegend">
-            <h1 class="numberResults">Search Results <mark class="number">()</mark></h1>
-        </section>
-            <ul class="results">
-                   
+          <section class="resultsLegend">
+            <h1 class="numberResults">
+              Search Results <mark class="number">()</mark>
+            </h1>
+          </section>
+          <ul class="results">
             <li class="resultFrame">
-                        
-             <section class="pictureContainer">
-                    <img class="image" src="Assets/nophoto.png" />
-            </section>
-                        
-           <section class="details">
-            <div class='titleContainer'>
-                <h1 class="title">${DATA.title}</h1>
-             </div>
+              <section class="pictureContainer">
+                <img class="image" src="Assets/nophoto.png" />
+              </section>
 
-             <div class="rows">
-            <section class="row row1">
-                <label for="miles">miles:</label>
-                <h3 class="miles">${DATA.miles}</h3>
+              <section class="details">
+                <div class="titleContainer">
+                  <h1 class="title">${DATA.title}</h1>
+                </div>
 
-                <label for="trim">Trim:</label>
-                <h3 class="trim">${DATA.trim} </h3>
-            </section>
+                <div class="rows">
+                  <section class="row row1">
+                    <label for="miles">miles:</label>
+                    <h3 class="miles">${DATA.miles}</h3>
 
-            <section class="row row2">
-                <label for="engine">Engine:</label>
-                <h3 class="engine">${DATA.engine}</h3>
+                    <label for="trim">Trim:</label>
+                    <h3 class="trim">${DATA.trim}</h3>
+                  </section>
 
-                <label for="color">Color:</label>
-                <h3 class="color">${DATA.color}</h3>
-            </section>
+                  <section class="row row2">
+                    <label for="engine">Engine:</label>
+                    <h3 class="engine">${DATA.engine}</h3>
 
-            <section class="row row3">
-                <label for="vin">VIN #:</label>
-                <h3 class="vin">${DATA.vin}</h3>
-                <label for="dealer">Dealership:</label>
-                <h3 class="dealer">${DATA.dealer}</h3>
-            </section>
-            </div>
-        </section>
+                    <label for="color">Color:</label>
+                    <h3 class="color">${DATA.color}</h3>
+                  </section>
 
-        <section class="links">
-                    <button onclick="DATA.dealerWeb" class="dealership">Contact Dealer</button>
-                    <h1 class="price">$ ${DATA.price} </h1>
-     </section>
+                  <section class="row row3">
+                    <label for="vin">VIN #:</label>
+                    <h3 class="vin">${DATA.vin}</h3>
+                    <label for="dealer">Dealership:</label>
+                    <h3 class="dealer">${DATA.dealer}</h3>
+                  </section>
+                </div>
+              </section>
+
+              <section class="links">
+                <!-- contact dealer phone-->
+                <button onclick="DATA.dealerWeb" class="dealership">
+                  Contact Dealer
+                </button>
+                <h1 class="price">$ ${DATA.price}</h1>
+              </section>
             </li>
-
-
-
-            </ul>
-        
-        
-          </section>  
-        </div>
+          </ul>
+        </section>
+      </div>
     </section>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
     <script src="main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjXkvTRurb_9IJ_lh5H2omegvpiPeZFGk&libraries=places&callback=initialize"></script>
-</body>
+  </body>
 </html>
