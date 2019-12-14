@@ -15,17 +15,21 @@ button {
   font-size: 16px;
   border: 1px solid black;
 }
+
 label {
   font-size: 25px;
 }
+
 input {
   font-size: 20px;
   border: 1px solid black;
 }
 
 .mainSearch {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  position: absolute;
+  bottom: 10%;
   width: 100vw;
   justify-content: space-around;
 }
@@ -33,9 +37,156 @@ input {
   margin: 30px 0 10px;
 }
 
+.searchInput {
+  display: none;
+  text-align: center;
+}
+.mainSearchContainer {
+  width: 100vw;
+  position: relative;
+  text-align: center;
+border: none;
+}
+#mainSearchSubmit {
+
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+  color: #fff;
+  background: #1A3056;
+  border-radius: 6px;
+}
+.background {
+  width: 100vw;
+  height: 55vh;
+  z-index: 0;
+  position: relative;
+  background: #1A3056;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .mainPage {
-  height: 100vh;
+ 
+  z-index: 3;
+  height: 80vh;
   width: 100%;
+  overflow: hidden;
+}
+.banner {
+ 
+  font-size: 60px;
+  font-weight: 300;
+
+}
+.sub-banner {
+  width: 30%;
+  position: absolute;
+margin-top: 10px;
+left: 10px;
+  font-weight: 100;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+}
+.bannerContainer {
+  position: absolute;
+  top: 120px;
+  height: fit-content;
+  left: 20px;
+  width: 100%;
+  color: #fff;
+
+}
+.logo {
+  margin-bottom: 4px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 16px;
+  align-self: center;
+  margin-bottom: 17px;
+}
+
+.logoImage {
+  align-self: flex-start;
+  height: 30px;
+width: auto;
+margin-right: 10px;
+}
+.logoContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  top: 10px;
+  left: 15px;
+
+  height: 50px;
+  width: fit-content;
+  z-index: 3;
+}
+
+.mainPhoto{
+  width: 750px;
+  height: 500px;
+  position: absolute;
+bottom: -200px;
+right: 3.5vw;
+  z-index: 1;
+
+
+}
+.firstOptions {
+width: 180px;
+height: 170px;
+display: flex;
+flex-direction: column;
+padding: 10px;
+align-items: center;
+justify-content: center;
+margin: 25px 25px 0px;
+font-size: 16px;
+background: #1A3056;
+color: #fff;
+border-radius: 6px;
+ cursor: pointer;
+ font-weight: 300;
+ padding-left: 10px;
+}
+
+.fo {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.secondOptions {
+  width: 270px;
+  height: 50px;
+  color: #fff;
+  background: #1A3056;
+margin: 0 10px 30px 10px;
+border-radius: 6px;
+padding-left: 10px;
+border: 3px solid #4a99e7;
+}  
+
+.secondOptions input + :focus {
+  border: 1px solid #4a99e7;
+}
+::placeholder {
+  color: #fff;
+  padding-left: 10px;
+}
+.dealerTypeContainer {
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+  display: flex;
+  flex-direction: row-reverse;
 }
 .resultsPage {
   height: 100vh;
@@ -59,6 +210,7 @@ input {
   display: flex;
   flex-direction: row;
   height: 200%;
+  justify-content: center;
   padding: 0 80px;
   overflow: hidden;
   position: relative;
@@ -81,7 +233,7 @@ input {
 }
 
 .searchBar {
-  position: sticky;
+
   top: 0;
   align-items: center;
   position: relative;
@@ -117,15 +269,24 @@ justify-content: center;
     flex-direction: row;
 }
 .searchIconContainer {
-
-
+margin-right: 10px;
 width: 3%;
 }
 .searchIcon , .filterIcon {
-    height: 2.2vh;
-    width: 1.4vw;
-    margin: 0 10px;
-    padding-top: 3px;
+    height: 2.5vh;
+
+    
+   
+}
+.searchIcon {
+  margin-left: 15px;
+  padding-top: 3px;
+  margin: 0 10px;
+}
+
+.filterIcon {
+  padding-top: 7px;
+  margin: 0 5px;
 }
 .labels{
     display: flex;
@@ -157,7 +318,7 @@ height: 100%;
   padding: 0 15px;
   font-weight: bold;
   font-size: 16px;
- 
+ margin-bottom: 2px;
 }
 .filterToggle.on {
     color: #4a99e7;
@@ -174,18 +335,30 @@ height: 100%;
   min-width: 80% !important;
 }
 
+  .pageLi {
+    border-bottom: none !important;
+  }
+
+.pageNext , .pagePrev{
+  background: #f3f4f5;
+  border: none;
+  border-radius: 10px;
+
+}
+
 .displayArea {
   padding: 0 15px 0px 15px;
   display: flex;
   flex-direction: column;
  min-width: 100%;
  margin-top: 20px;
-  height: 90vh;
-  overflow: auto;
+  height: 89vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 10px;
   background: #fff;
   box-shadow: var(--shadow);
-  transition: all .3s ease-in-out;
+  transition: min-width .3s ease-in-out;
 }
 .pageSection {
   width: 100%;
@@ -193,12 +366,13 @@ height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px 0 0 0;
+  margin: 5px 0;
+  border: none;
 }
 .pageNumber {
   color: black !important;
   font-size: 20px !important;
-  margin: 0 20px;
+  margin: 0 20px !important;
 }
 .button-container {
   display: flex;
@@ -215,6 +389,10 @@ height: 100%;
     padding: 0 15px;
     border-left: 1px solid lightgrey;
     font-size: 16px;
+}
+.resultsFrame {
+  overflow: hidden;
+  position: relative;
 }
 .results li {
   border-bottom: 1px solid lightgrey;
@@ -241,32 +419,32 @@ height: 100%;
 }
 .image {
   border-radius: 8px;
-  /*width: 344px;*/
-  width: 100%;
+ width: 333px;
+
   height: 100%;
-  /*height: 237px;*/
 }
 .pictureContainer {
-    flex-shrink: 1;
+   
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
 padding-left: 5px;
 }
 .details {
     display: flex;
     flex-direction: column;
-    flex-shrink: 2;
-  flex: 1.5;
+flex: 1.5;
   align-items: center;
   justify-content: center;
-  min-width: 450px;
+
   padding-left: 20px;
   padding-right: 3px;
 }
 .links {
     flex-shrink: 1;
-  flex: .7;
+ 
+  width: 180px;
   display: flex;
   flex-direction: column;
   padding-left: 15px;
@@ -549,8 +727,9 @@ height: 500px;
     box-shadow: var(--shadow);
 }
 
-.newSearchFrame {
+.newSearchContainer {
     border: none;
+    display: none;
 }
 
 .newSearchFrame1  {

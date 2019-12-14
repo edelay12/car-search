@@ -1,11 +1,11 @@
 window.onload = function() {
   this.console.log("Site load successful");
-  watchUser();
+ this.watchUser();
   this.newSearch();
   $('.resultsPage').hide();
 };
 //store
-const key = "PtZ8Py1E8bb6pgchRvtZhV606nLNE2zA";
+const key = "mmJ36bPSxG67C3rNpvsYeWcT1TlA5wdf";
 let start = 0;
 let row = 25;
 let currentParams = null;
@@ -15,6 +15,7 @@ let currentSearch = {
     userMake : null,
     userModel : null,
     userLoc : location,
+    dealerType: null,
 }
 let userPrice = null;
 let userMiles = null;
@@ -24,6 +25,13 @@ let userTrims = null;
 let distance = 200;
 
 function watchUser() {
+  $('#fsbo , #dealer').on('click', function(){
+    currentSearch.dealerType = $(this).val();
+    console.log(currentSearch.dealerType)
+    $('.dealerTypeContainer').hide();
+    $('.searchInput').show();
+  })
+
   $(".mainSearch").on("submit", function(e) {
     e.preventDefault();
     currentPage = 1;
@@ -36,7 +44,7 @@ function watchUser() {
    
 
 
-    getCordinates($('.city'));
+    getCordinates($('#city'));
     updateSearchBar();
     filterToggle();
   });
@@ -47,8 +55,8 @@ function setParams(cordinates) {
         year: "&year=" + currentSearch.userYear.val(),
         make: "&make=" + currentSearch.userMake.val(),
         model: "&model=" + currentSearch.userModel.val(),
-        distance: "&radius=" + 200,
-        loc: cordinates
+        distance: currentSearch.dealerType == 2 ? "&radius=" + 200 : '',
+        loc: cordinates,
       };
       currentParams = params;
   watchFilters(cordinates);
@@ -74,12 +82,12 @@ function getResultsRetry(params, n) {
     .catch(err => {
         console.log(err)
       if (n == 1) throw error;
-          console.log('caught error')
           $('.results').empty();
           $('.results').append(`<h1>Server Error: Trying again</h1>`);
+          $('#js-error').text('Server Error: Please try your search again in a few seconds');
           return getResultsRetry(params, n - 1);
      
-      $('#js-error').text('Server Error: Please try your search again in a few seconds');
+     
 
     });
 }
@@ -112,7 +120,7 @@ function getResults(params, n) {
 function setURL(params) {
   console.log(params);
   let apiSearch =
-    "https://marketcheck-prod.apigee.net/v1/search?api_key=" + key;
+    "https://marketcheck-prod.apigee.net/v1/search" + getDealerType() + "api_key=" + key;
   let rows = `&start=${start}&rows=${row}`;
   let sort = `&sort_order=asc`;
   let url = userOptions() + rows + sort;
@@ -129,6 +137,15 @@ function setURL(params) {
   return url;
 }
 
+function getDealerType() {
+  console.log('Dealertype is' + currentSearch.dealerType)
+  if (currentSearch.dealerType == 1 ){
+    return '/fsbo?'; 
+  } else {
+    return '?';
+  }
+  
+} 
 function displayResults(ResponseJson) {
   $(".results").empty();
   console.log(ResponseJson.listings.length);
@@ -154,6 +171,7 @@ $('#range_disp').text(distance);
       dealerWeb: j.vdp_url
     };
 
+    $('.filtersArea , .displayArea, .filterToggle').toggleClass('on');
     $(".results").append(`<li class="resultFrame">
         <section class="pictureContainer">
                <img class="image" src="${DATA.imgsrc}" />
@@ -193,11 +211,11 @@ $('#range_disp').text(distance);
   }
   if (ResponseJson.num_found > 25){
   $(".results").append(
-    `<li><section class="pageSection">
+    `<li class='pageLi'><section class="pageSection">
     <div class="button-container"> 
-    <button class="pagePrev">Previous Page(icon)</button>
+    <button class="pagePrev">Previous Page</button>
     <label for='current-page' class='pageNumber'>Page: ${currentPage}</label>
-   <button class="pageNext">Next Page(icon)</button>
+   <button class="pageNext">Next Page</button>
 </div>
 </section></li>`
   );
@@ -224,7 +242,7 @@ function watchFilters(cordinates) {
       loc: cordinates,
       trim: getTrims(),
       bodyTypes: getBodyTypes(),
-      distance: "&radius=" + $("#range_disp").val(),
+      distance: currentSearch.dealerType == 2 ? "&radius=" + $("#range_disp").val() : '',
       priceRange: getPrice(),
       milesRange: getMiles(),
       condition: "&car_type=" + getType()
@@ -334,26 +352,7 @@ function setTrims(ResponseJson) {
     );
   });
 }
-/*
-function updateFilters(url){
-   // new url = https://marketcheck-prod.apigee.net/v1/search?api_key=vA4BcNYyp4rFjWdgi1qEK…fined-undefined%car_type=used&car_type=used&start=0&rows=50&sort_order=asc
-  // https://marketcheck-prod.apigee.net/v1/search?api_key=vA4BcNYyp4rFjWdgi1qEKuxZ2AKffyzF&year=2014&make=ford&model=focus&zip=63367&body_type&radius=150&price_range=-&miles_range=undefined-undefined%car_type=used&car_type=used&start=0&rows=50&sort_order=asc
-}
 
-function filtersValidator(params){
-let val = params;
-    for (let key in val){
-        if(val[key] == null) {
-            delete val[key];
-        }     
-    }
-    console.log(val)
-}
-
-function validator(e){
-    if (e.val() == '') return null;
-    else return e.val();
-}*/
 
 /* Google maps API */
 function initialize() {
@@ -450,6 +449,7 @@ jQuery.fn.scrollTo = function(elem, speed) {
 //updating search bar
 function updateSearchBar() {
         let userSearch = {
+          dealer: currentSearch.dealerType == 1 ? 'Private Party' : 'Dealership',
       userBuild : currentSearch.userYear.val() + ' ' + currentSearch.userMake.val() + ' ' + currentSearch.userModel.val(),
       location : currentSearch.userLoc.val(),
         trim :userTrims,
@@ -460,9 +460,9 @@ function updateSearchBar() {
       condition:userType
         }
 
+        cleanSearch();
+  function cleanSearch() {
      for (let i in userSearch) {
-         console.log(i +'is =' + userSearch[i]);
-
          switch (userSearch[i]){
             case null:
                 delete userSearch[i];
@@ -475,7 +475,7 @@ function updateSearchBar() {
             delete userSearch[i];
          }
         }
-       
+      }
         //set current params
              
 console.log(userSearch)
@@ -495,7 +495,7 @@ function clearValues(){
     userPrice = null;
 userMiles = null;
 userType = null;
-userBody = null
+userBody = null;
 userTrims = null;
 }
 
@@ -511,6 +511,13 @@ function newSearch(){
     $('.newSearch, #newSearchSubmit, .labels').on('click', function(){
         $('.newSearchPage').toggleClass('on');
         
+    })
+
+    $('#NewSearchFsbo , #NewSearchDealer').on('click', function(){
+      currentSearch.dealerType = $(this).val();
+      console.log(currentSearch.dealerType)
+      $('.newSearchDealerTypeContainer').hide();
+      $('.newSearchContainer').show();
     })
 
     $(".newSearchForm").on("submit", function(e) {

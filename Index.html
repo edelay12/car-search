@@ -11,47 +11,80 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css">
+    
+  
     <script
       src="https://kit.fontawesome.com/4de2361912.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <header class="nav"></header>
-  <body>
+  <body> 
+    
     <section class="mainPage">
-      <h1 class="banner">Find the car that fits your life</h1>
-      <h3></h3>
+        <div class="background">
+          <div class="logoContainer">
+              <img class="logoImage" src="Assets/gK1F3.png"/>
+              <h1 class="logo" > CarSearch.io</h1>
+          </div>
+      
+      <img src="Assets/IMG_2795.PNG" alt="MainPhoto" class="mainPhoto"/>
+          <div class="bannerContainer">
+              <h1 class="banner">Find a car that fits your life.</h1>
+              <h3 class="sub-banner">Search over 6 million current listings from over 53,000 dealerships, and over 175,000 private listings.</h3>
 
+          </div>
+
+    </div>
+    <div class="mainPageContent">
+        <div class="dealerTypeContainer">
+            <div class="fsboContainer">
+              <button id='fsbo' class="firstOptions" value='1'><i class="fas fa-user-alt fo"></i>Search <br>Private Party Listings</button>
+            </div>
+           
+              <button id='dealer' class="firstOptions" value="2"><i class="fas fa-synagogue fo"></i>Search Dealership Listings</button>
+            </div>
       <form class="mainSearch">
-        <fieldset class="mainSearch">
-          <label for="year">Year: </label>
+
+
+            <div class="searchInput">
+        <fieldset class="mainSearchContainer">
+          
           <input
-            value=""
+            value="2014"
             type="number"
+            class="secondOptions"
             id="year"
             maxlength="4"
             minlength="4"
+            placeholder="Year"
+            autocomplete="off"
+            autofocus
           />
-          <label for="make">Make: </label>
-          <input value="" type="text" id="make" />
-          <label for="model">Model: </label>
-          <input value="" type="text" id="model" />
-          <label for="location">Location: </label>
+
+          <input value="ford" type="text" class='secondOptions' id="make"  autocomplete="off" placeholder="Make"/>
+    
+          <input value="focus" type="text" class='secondOptions' id="model"  autocomplete="off" placeholder="Model" />
+       
           <input
-            value=""
+            value="lake saint louis"
+            class='secondOptions'
             type="text"
-            class="city"
             id="city"
-            placeholder=""
+            placeholder="Location"
+            autocomplete="off"
             required
           />
-          <button type="submit">Submit</button>
+          <button type="submit" id="mainSearchSubmit">Search Listings</button>
         </fieldset>
+       
+      </div>
       </form>
       <h1 id="js-error"></h1>
+      
     </section>
 
-
+  </div>
 </section>
 
 
@@ -82,8 +115,12 @@
 
       <section class="newSearchPage">
                     <form class="newSearchForm">
-                            
-                            <fieldset class="newSearchFrame">
+                      <div class="newSearchDealerTypeContainer">
+                        <button id='newSearchDealer' class="newSearchfirstOptions" value="2">Search Dealership Listings</button>
+                        <button id='newSearchFsbo' class="newSearchfirstOptions" value='1'>Search Private Party Listings</button>
+                     
+                      </div>
+                            <fieldset class="newSearchContainer">
                                     <h1 id="js-error"></h1>
                               <label for="year">Year: </label>
                               <input 
