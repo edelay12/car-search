@@ -30,7 +30,7 @@
       
       <img src="Assets/IMG_2795.PNG" alt="MainPhoto" class="mainPhoto"/>
           <div class="bannerContainer">
-              <h1 class="banner">Find a car that fits your life.</h1>
+              <h1 class="banner">Find a car that fits your lifestyle.</h1>
               <h3 class="sub-banner">Search over 6 million current listings from over 53,000 dealerships, and over 175,000 private listings.</h3>
 
           </div>
@@ -53,6 +53,7 @@
           <input
             value="2014"
             type="number"
+            min='1996'
             class="secondOptions"
             id="year"
             maxlength="4"
@@ -100,7 +101,7 @@
                         
                           </ul> 
               </div>
-         
+            
           <div class="filterSearchContainer">
 
                 <label for="toggle filters" class="filterToggle"
@@ -111,39 +112,44 @@
           </div>
           
       </div>
+  
+
       </section>
 
       <section class="newSearchPage">
                     <form class="newSearchForm">
                       <div class="newSearchDealerTypeContainer">
-                        <button id='newSearchDealer' class="newSearchfirstOptions" value="2">Search Dealership Listings</button>
-                        <button id='newSearchFsbo' class="newSearchfirstOptions" value='1'>Search Private Party Listings</button>
+                        <button  type="button" id='newSearchDealer' class="newSearchfirstOptions" value="2"><i class="fas fa-user-alt foNewSearch"></i> Search Dealership Listings</button>
+                        <button  type="button" id='newSearchFsbo' class="newSearchfirstOptions" value='1'><i class="fas fa-synagogue foNewSearch"></i> Search Private Party Listings</button>
                      
                       </div>
                             <fieldset class="newSearchContainer">
-                                    <h1 id="js-error"></h1>
+                                <h1 id="js-errorNewSearch"></h1>
                               <label for="year">Year: </label>
                               <input 
+                                class="newSearchSecondOptions"
                                 value=""
+                                min='1996'
                                 type="number"
                                 id="yearNewSearch"
                                 maxlength="4"
                                 minlength="4"
+                                autofocus
                               />
                               <label for="make">Make: </label>
-                              <input value="" type="text" id="makeNewSearch" />
+                              <input class="newSearchSecondOptions" value="" type="text" id="makeNewSearch" />
                               <label for="model">Model: </label>
-                              <input value="" type="text" id="modelNewSearch" />
+                              <input  class="newSearchSecondOptions" value="" type="text" id="modelNewSearch" />
                               <label for="location">Location: </label>
                               <input 
                                 value=""
                                 type="text"
-                                class="cityNewSearch"
+                                class="newSearchSecondOptions"
                                 id="cityNewSearch"
                                 placeholder=""
-                                required
+                              
                               />
-                              <button type="submit" id='newSearchSubmit'>Submit</button>
+                              <button type="submit"  class="newSearchSecondOptions" id='newSearchSubmit'>Search Listings</button>
                             </fieldset>
                         </form>
       </section>
@@ -152,7 +158,7 @@
         <div class="filtersArea">
           <section class="filtersHeader">
             <h1 id="filtersText">Filters</h1>
-            <h1 id="filtersText" class="filterToggle">---</h1>
+            <h1 id="filtersTextBar" class="filterToggle">----</h1>
           </section>
           <form class="filter_form">
             <section class="body_types">
@@ -347,6 +353,9 @@
             <h1 class="numberResults">
               Search Results <mark class="number">()</mark>
             </h1>
+            <div class="tutorial">
+                <h1 class="tutorialLabel">Try adding filters to narrow your search <i class="fas fa-level-up-alt"></i></h1>
+            </div>
           </section>
           <ul class="results">
             <li class="resultFrame">

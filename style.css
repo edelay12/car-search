@@ -29,7 +29,7 @@ input {
   display: inline-flex;
   flex-direction: row;
   position: absolute;
-  bottom: 10%;
+  bottom: 7%;
   width: 100vw;
   justify-content: space-around;
 }
@@ -141,7 +141,7 @@ right: 3.5vw;
 }
 .firstOptions {
 width: 180px;
-height: 170px;
+height: 150px;
 display: flex;
 flex-direction: column;
 padding: 10px;
@@ -155,11 +155,17 @@ border-radius: 6px;
  cursor: pointer;
  font-weight: 300;
  padding-left: 10px;
+ box-shadow: var(--shadow);
 }
 
 .fo {
   font-size: 40px;
   margin-bottom: 15px;
+}
+
+.foNewSearch{
+  font-size: 32px;
+  margin: 0 10px 5px 0;
 }
 
 .secondOptions {
@@ -170,11 +176,42 @@ border-radius: 6px;
 margin: 0 10px 30px 10px;
 border-radius: 6px;
 padding-left: 10px;
-border: 3px solid #4a99e7;
+border: 2px solid #4a99e7;
 }  
 
 .secondOptions input + :focus {
   border: 1px solid #4a99e7;
+}
+
+.newSearchContainer input + :focus {
+  border: 1px solid #4a99e7;
+}
+
+.newSearchContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+align-items: center;
+justify-content: center;
+
+
+}
+
+.newSearchContainer label {
+  margin-left: 20px;
+  font-size: 20px;
+}
+.newSearchSecondOptions {
+  display: block;
+  width: 360px;
+  height: 50px;
+  color: #fff;
+  background: #1A3056;
+margin: 0 10px 30px 10px;
+border-radius: 6px;
+padding-left: 10px;
+border: 2px solid #4a99e7;
+
 }
 ::placeholder {
   color: #fff;
@@ -189,9 +226,10 @@ border: 3px solid #4a99e7;
   flex-direction: row-reverse;
 }
 .resultsPage {
+  display: none;
   height: 100vh;
   width: 100%;
-    display: flex;
+  
     flex-direction: column;
     justify-content: space-evenly;
 
@@ -218,6 +256,11 @@ border: 3px solid #4a99e7;
 .number {
   color: #939ca8;
   background: none;
+}
+#filtersTextBar {
+  position: absolute;
+  right: 5px;
+  letter-spacing: 0;
 }
 .numberResults {
   font-size: 20px;
@@ -247,7 +290,7 @@ border: 3px solid #4a99e7;
 }
 .labelsContainer{
     position: sticky;
-    max-width: 78%;
+    max-width: 70%;
     overflow-x: auto;
     max-height: 100%;
     -ms-overflow-style: none;
@@ -261,7 +304,7 @@ border: 3px solid #4a99e7;
     position: relative;
 position: absolute;
 right: 7px;
-width: 19%;
+min-width: 19%;
 
 align-items: center;
 justify-content: center;
@@ -294,6 +337,7 @@ width: 3%;
     width: fit-content;
     cursor: pointer;
    max-height: 100%;
+
 }
 .filterFrame {
     list-style: none;
@@ -323,6 +367,7 @@ height: 100%;
 .filterToggle.on {
     color: #4a99e7;
     text-shadow: 5px #489aeb;
+    cursor: pointer;
 }
 
 .fa-sliders-h {
@@ -333,6 +378,24 @@ height: 100%;
 .displayArea.on {
 
   min-width: 80% !important;
+
+}
+.newSearchDealerTypeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+width: 100%;
+}
+.newSearchfirstOptions {
+margin: 20px;
+background: #1A3056;
+border: none;
+color: #fff;
+border-radius: 6px;
+padding: 20px;
+min-width: 300px;
+box-shadow: var(--shadow);
 }
 
   .pageLi {
@@ -425,7 +488,6 @@ height: 100%;
 }
 .pictureContainer {
    
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -434,18 +496,16 @@ padding-left: 5px;
 .details {
     display: flex;
     flex-direction: column;
-flex: 1.5;
-  align-items: center;
-  justify-content: center;
 
+max-width: 450px;
   padding-left: 20px;
   padding-right: 3px;
 }
 .links {
-    flex-shrink: 1;
- 
-  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
   display: flex;
+
   flex-direction: column;
   padding-left: 15px;
   border-left: 1px solid lightgray;
@@ -460,6 +520,7 @@ flex: 1.5;
   border-radius: 6px;
   color: #fff;
   text-align: center;
+  white-space: nowrap;
 }
 .price {
   background: #f3f4f5;
@@ -481,6 +542,7 @@ flex: 1.5;
   flex-direction: row;
 }
 .row {
+
   margin: 0 10px;
 }
 .filtersArea.on {
@@ -715,16 +777,21 @@ padding: 0 80px;
 transform: translateY(0);
 opacity: 1;
 height: 500px;
-
+margin-bottom: 20px;
+min-height: fit-content;
 }
 .newSearchForm{
     border: none;
     width: 100%;
     display: flex;
     flex-direction: row !important;
+    justify-content: center;
     background: #fff;
     z-index: 3;
     box-shadow: var(--shadow);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    padding: 10px;
 }
 
 .newSearchContainer {
@@ -732,6 +799,24 @@ height: 500px;
     display: none;
 }
 
+.tutorial {
+  width: fit-content;
+  position: absolute;
+  right: 10px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  color: red;
+}
+
+.rangeContainer input {
+  border-radius: 6px;
+  border: .5px solid lightgray;
+}
+
+.rangeContainer input::placeholder {
+  color: black;
+}
 .newSearchFrame1  {
     display: flex;
     flex-direction: row !important;

@@ -2,12 +2,13 @@ window.onload = function() {
   this.console.log("Site load successful");
  this.watchUser();
   this.newSearch();
-  $('.resultsPage').hide();
+
+
 };
 //store
 const key = "mmJ36bPSxG67C3rNpvsYeWcT1TlA5wdf";
 let start = 0;
-let row = 25;
+let row = 15;
 let currentParams = null;
 let currentPage = 1;
 let currentSearch = {
@@ -36,11 +37,11 @@ function watchUser() {
     e.preventDefault();
     currentPage = 1;
     start = 0;
-    row = 25;
+    row = 15;
     currentSearch.userYear = $('#year');
     currentSearch.userMake = $('#make') ;
     currentSearch.userModel = $('#model');
-    currentSearch.userLoc = $('.city');
+    currentSearch.userLoc = $('#city');
    
 
 
@@ -106,7 +107,7 @@ function getResults(params, n) {
     .then(ResponseJson => {
       console.log(ResponseJson);
       displayResults(ResponseJson);
-      $('.resultsPage').show();
+      $('.resultsPage').css('display', 'flex');
       $('.mainPage').hide();
     })
     .catch(err => {
@@ -151,7 +152,7 @@ function displayResults(ResponseJson) {
   console.log(ResponseJson.listings.length);
 $('#range_disp').text(distance); 
   $(".numberResults").html(
-    `Search Results <mark class="number">(${ResponseJson.num_found})</mark>`
+    `Search Results: <mark class="number">${ResponseJson.num_found < 15 ? '': start+15 + ' of '}(${ResponseJson.num_found})</mark>`
   );
   for (let i = 0; i < ResponseJson.listings.length; i++) {
     let j = ResponseJson.listings[i];
@@ -171,7 +172,7 @@ $('#range_disp').text(distance);
       dealerWeb: j.vdp_url
     };
 
-    $('.filtersArea , .displayArea, .filterToggle').toggleClass('on');
+  //  $('.filtersArea , .displayArea, .filterToggle').toggleClass('on');
     $(".results").append(`<li class="resultFrame">
         <section class="pictureContainer">
                <img class="image" src="${DATA.imgsrc}" />
@@ -209,7 +210,7 @@ $('#range_disp').text(distance);
 </section>
        </li>`);
   }
-  if (ResponseJson.num_found > 25){
+  if (ResponseJson.num_found > 15){
   $(".results").append(
     `<li class='pageLi'><section class="pageSection">
     <div class="button-container"> 
@@ -233,7 +234,7 @@ function watchFilters(cordinates) {
     e.preventDefault();
     currentPage = 1;
     start = 0;
-    row = 25;
+    row = 15;
 
     let newParams = {
       year: "&year=" + currentSearch.userYear.val(),
@@ -253,6 +254,7 @@ function watchFilters(cordinates) {
     console.log(newParams);
     getResultsRetry(newParams);
     updateSearchBar();
+    $(".filtersArea, .displayArea, .filterToggle").toggleClass("on");
   });
 
   function getTrims() {
@@ -406,7 +408,7 @@ function watchPages() {
 }
 
 function updateResultsNext() {
-  start += 25;
+  start += 15;
   currentPage++;
   console.log("new start =" + start);
   getResultsRetry(currentParams);
@@ -415,7 +417,7 @@ function updateResultsNext() {
 
 function updateResultsPrev() {
   if (start > 0) {
-    start -= 25;
+    start -= 15;
     currentPage--;
     console.log("prev start =" + start);
     getResultsRetry(currentParams);
@@ -426,7 +428,7 @@ function updateResultsPrev() {
 // formate price and miles
 function formatNumber(number, format) {
   if (!number) {
-    return "not available";
+    return "Call Dealer for Info";
   }
   var parts = number.toString().split(".");
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -452,10 +454,10 @@ function updateSearchBar() {
           dealer: currentSearch.dealerType == 1 ? 'Private Party' : 'Dealership',
       userBuild : currentSearch.userYear.val() + ' ' + currentSearch.userMake.val() + ' ' + currentSearch.userModel.val(),
       location : currentSearch.userLoc.val(),
-        trim :userTrims,
-      distance1 :'radius: ' +distance,
-      priceRange :userPrice,
-      milesRange:userMiles,
+        trim : userTrims == null ? '' : userTrims.substring(0, userTrims.length - 1),
+      distance1 :'Radius: ' +distance,
+      priceRange :'Price: ' +userPrice,
+      milesRange:'Miles: ' +userMiles,
       body_type:userBody,
       condition:userType
         }
@@ -468,10 +470,20 @@ function updateSearchBar() {
                 delete userSearch[i];
             case '':
                 delete userSearch[i];
-            case '0-10000000': 
+
+            case 'Price: 0-10000000': 
             delete userSearch[i];
 
+            case 'Miles: 0-10000000': 
+            delete userSearch[i];
+            
             case 'body type':
+            delete userSearch[i];
+
+            case 'Price: null' :
+            delete userSearch[i];
+
+            case 'Miles: null' :
             delete userSearch[i];
          }
         }
@@ -501,19 +513,18 @@ userTrims = null;
 
 function filterToggle() {
   $(".filterToggle").on("click", function() {
-    $(".filtersArea").toggleClass("on");
-    $(".displayArea").toggleClass("on");
-    $(".filterToggle").toggleClass("on");
+    $('.tutorial').hide();
+    $(".filtersArea, .displayArea, .filterToggle").toggleClass("on");
   });
 }
 
 function newSearch(){
-    $('.newSearch, #newSearchSubmit, .labels').on('click', function(){
+    $('.newSearch, .labels, .searchIconContainer').on('click', function(){
         $('.newSearchPage').toggleClass('on');
         
     })
 
-    $('#NewSearchFsbo , #NewSearchDealer').on('click', function(){
+    $('#newSearchFsbo , #newSearchDealer').on('click', function(){
       currentSearch.dealerType = $(this).val();
       console.log(currentSearch.dealerType)
       $('.newSearchDealerTypeContainer').hide();
@@ -524,13 +535,19 @@ function newSearch(){
         e.preventDefault();
         currentPage = 1;
         start = 0;
-        row = 25;
+        row = 15;
         currentSearch.userYear = $('#yearNewSearch');
         currentSearch.userMake = $('#makeNewSearch') ;
         currentSearch.userModel = $('#modelNewSearch');
-        currentSearch.userLoc = $('.cityNewSearch');
+        currentSearch.userLoc = $('#cityNewSearch');
 
-        getCordinates($('.cityNewSearch'));
-        updateSearchBar();
+        if ($('#cityNewSearch').val() !== ''|| undefined || null){
+          getCordinates($('#cityNewSearch'));
+          updateSearchBar();
+          $('.newSearchPage').toggleClass('on');
+        }  else {
+          $('#js-errorNewSearch').text('Please enter a valid location');
+   
+        }
     })
 }

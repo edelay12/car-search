@@ -12,7 +12,7 @@
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1070px) {
     .filterSearchContainer {
         width: fit-content;
          right: 5px;
@@ -61,7 +61,6 @@
     }
     .labelsContainer {
         margin-left: 15px;
-        max-width: 75%;
         padding-right: 80px;
     }
    
@@ -69,15 +68,24 @@
 
 
 
-
-
-
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 790px) {
     .labelsContainer {
         margin-left: 15px;
+        max-width: 65%;
+        
+    }
+    .resultsLegend {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
     }
     .searchArea {
         padding: 5px;   
+    }
+    .tutorial{
+        position: relative;
+        font-size: 16px;
+        white-space: nowrap;
     }
     .filterToggle {
         padding: 0 20px 0 0;
@@ -99,12 +107,26 @@
      .newSearch {
          display: none;
      }
-  
+
+  .newSearchPage.on {
+      padding: 0 5px;
+     
+  }
+  .newSearchDealerTypeContainer {
+
+    flex-direction: column;
+  }
+
+  .newSearchSecondOptions {
+    width: 270px;
+    height: 50px;
+  }
 
     .displayArea.on {
         min-width: 100% !important;
         z-index: 1;
-        opacity: .3;
+        opacity: .2;
+        pointer-events: none;
     }
 
     .filtersArea.on {
@@ -173,9 +195,14 @@
         height: 300px;
         width: 100%;
     }
+    
+   .rows {
+       padding: 0 20px;
+ 
+   }
     .details {
-        
-        padding: 5px;
+        padding: 0 20px;
+      
     }
     .resultsFrame {
         display: flex;
@@ -183,11 +210,12 @@
         align-items: center;
     }
     .results li label {
-        font-size: 10px;
+        font-size: 11px;
+
    
       }
       .results li h3 {
-        font-size: 15px;
+        font-size: 14px;
 
       }
 .titleContainer {
