@@ -1,119 +1,112 @@
 @media screen and (max-width: 1200px) {
-    .displayArea.on {
-        min-width: 100% !important;
-        z-index: 1;
-    }
+  .displayArea.on {
+    min-width: 100% !important;
+    z-index: 1;
+  }
 
-    .filtersArea.on {
-        z-index: 3;
-        position: absolute;
-        left: 80px;
-    }
+  .filtersArea.on {
+    z-index: 3;
+    position: absolute;
+    left: 80px;
+  }
 }
-
 
 @media screen and (max-width: 1070px) {
-    .filterSearchContainer {
-        width: fit-content;
-         right: 5px;
-         background: #fff;
-         height: 90%;
-         text-align: center;
-         font-size: 10px;
-     }
-    .mainPhoto {
-        width: 600px;
-        height: 350px;
-        bottom: -150px;
-    }
-    .results li {
-        border-bottom: 3px solid #1A3056;
+  .filterSearchContainer {
+    width: fit-content;
+    right: 5px;
+    background: #fff;
+    height: 90%;
+    text-align: center;
+    font-size: 10px;
+  }
+  .mainPhoto {
+    width: 600px;
+    height: 350px;
+    bottom: -150px;
+  }
+  .results li {
+    border-bottom: 3px solid #1a3056;
 
-        flex-direction: column;
-        align-items: center;
-    }
-    .pictureContainer {
-        width: 100%;
-        padding: 0;
-        justify-content: center;
-    }
-    .image {
-        height: 300px;
-        width: 500px;
-    }
-    .details {
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-    .links {
-        flex-direction: row;
-        border-left: none;
-        border-top: 1px solid lightgrey;
-        min-width: 80%;
-        padding: 20px 0;
-        align-items: center;
-        justify-content: center;
-    }
-    .dealership , .price {
-        margin: 0 20px;
-        padding: 10px 50px;
-        min-width: 200px;
-    }
-    .labelsContainer {
-        margin-left: 15px;
-        padding-right: 80px;
-    }
-   
+    flex-direction: column;
+    align-items: center;
+  }
+  .pictureContainer {
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+  }
+  .image {
+    height: 300px;
+    width: 500px;
+  }
+  .details {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .links {
+    flex-direction: row;
+    border-left: none;
+    border-top: 1px solid lightgrey;
+    min-width: 80%;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .dealership,
+  .price {
+    margin: 0 20px;
+    padding: 10px 50px;
+    min-width: 200px;
+  }
+  .labelsContainer {
+    margin-left: 15px;
+    padding-right: 80px;
+  }
 }
 
-
-
 @media screen and (max-width: 790px) {
-    .labelsContainer {
-        margin-left: 15px;
-        max-width: 65%;
-        
-    }
-    .resultsLegend {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: space-evenly;
-    }
-    .searchArea {
-        padding: 5px;   
-    }
-    .tutorial{
-        position: relative;
-        font-size: 16px;
-        white-space: nowrap;
-    }
-    .filterToggle {
-        padding: 0 20px 0 0;
-        margin-bottom: 3px;
-        
-    }
-    .filterIcon {
-       margin: 3px 5px 0;
-        padding-left: 10px;
-        padding-top: 5px;
-    }
-    .searchBar {
-        margin-top: 5px;
-     }
-     .displayArea { 
-        margin-top: 5px;
-     }
+  .labelsContainer {
+    margin-left: 15px;
+    max-width: 65%;
+  }
+  .resultsLegend {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+  .searchArea {
+    padding: 5px;
+  }
+  .tutorial {
+    position: relative;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .filterToggle {
+    padding: 0 20px 0 0;
+    margin-bottom: 3px;
+  }
+  .filterIcon {
+    margin: 3px 5px 0;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+  .searchBar {
+    margin-top: 5px;
+  }
+  .displayArea {
+    margin-top: 5px;
+  }
 
-     .newSearch {
-         display: none;
-     }
+  .newSearch {
+    display: none;
+  }
 
   .newSearchPage.on {
-      padding: 0 5px;
-     
+    padding: 0 5px;
   }
   .newSearchDealerTypeContainer {
-
     flex-direction: column;
   }
 
@@ -122,131 +115,123 @@
     height: 50px;
   }
 
-    .displayArea.on {
-        min-width: 100% !important;
-        z-index: 1;
-        opacity: .2;
-        pointer-events: none;
-    }
+  .displayArea.on {
+    min-width: 100% !important;
+    z-index: 1;
+    opacity: 0.2;
+    pointer-events: none;
+  }
 
-    .filtersArea.on {
-        z-index: 3;
-        position: absolute;
-        max-width: 80% !important;
-        left: 10%;
-        right: 10%;
-        height: 70vh;
-    }
-    .mainPhoto {
-       display: none;
-    }
-    .bannerContainer {
-  top: 25%;
-        padding: 0;
-  
-      left: 0;
-        height: 100%;
-        text-align: center;
-    }
-    .background {
-        height: 40vh;
-    }
-    .wrapper {
-        padding: 0 5px;
-    }
-    .banner {
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
-    .sub-banner {
-        width: 90vw;
-        font-size: 16px;
-        margin: 10px 10px 10px 10px;
+  .filtersArea.on {
+    z-index: 3;
+    position: absolute;
+    max-width: 80% !important;
+    left: 10%;
+    right: 10%;
+    height: 70vh;
+  }
+  .mainPhoto {
+    display: none;
+  }
+  .bannerContainer {
+    top: 25%;
+    padding: 0;
 
-        text-align: center;
-    }
+    left: 0;
+    height: 100%;
+    text-align: center;
+  }
+  .background {
+    height: 40vh;
+  }
+  .wrapper {
+    padding: 0 5px;
+  }
+  .banner {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .sub-banner {
+    width: 90vw;
+    font-size: 16px;
+    margin: 10px 10px 10px 10px;
 
-    .firstOptions {
-        margin: 15px;
-        width: 140px;
-        height: 140px;
-    }
-    
-    .mainSearch {
-        bottom: 4%;
-    }
+    text-align: center;
+  }
 
-    .secondOptions {
-        width: 270px;
-        height: 50px;
-  
-      margin: 0 10px 10px 10px;
-    
-    }
+  .firstOptions {
+    margin: 15px;
+    width: 140px;
+    height: 140px;
+  }
 
-    .links {
-        flex-direction: column-reverse;
-    }
-    .pictureContainer {
-        width: 350px;
-        position: relative;
-    }
-    .image {
-        height: 300px;
-        width: 100%;
-    }
-    
-   .rows {
-       padding: 0 20px;
- 
-   }
-    .details {
-        padding: 0 20px;
-      
-    }
-    .resultsFrame {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .results li label {
-        font-size: 11px;
+  .mainSearch {
+    bottom: 4%;
+  }
 
-   
-      }
-      .results li h3 {
-        font-size: 14px;
+  .secondOptions {
+    width: 270px;
+    height: 50px;
 
-      }
-.titleContainer {
+    margin: 0 10px 10px 10px;
+  }
+
+  .links {
+    flex-direction: column-reverse;
+  }
+  .pictureContainer {
+    width: 350px;
+    position: relative;
+  }
+  .image {
+    height: 300px;
+    width: 100%;
+  }
+
+  .rows {
+    padding: 0 20px;
+  }
+  .details {
+    padding: 0 20px;
+  }
+  .resultsFrame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .results li label {
+    font-size: 11px;
+  }
+  .results li h3 {
+    font-size: 14px;
+  }
+  .titleContainer {
     text-align: center;
     width: 100%;
     margin: 0;
+  }
+  .title {
+    align-self: center;
+    font-size: 25px;
+  }
+
+  .dealership,
+  .price {
+    margin: 10px 0;
+    padding: 10px 50px;
+    min-width: 200px;
+  }
+
+  .dealerTypeContainer {
+    bottom: 80px;
+  }
+  #js-error {
+    z-index: 10;
+    background: #fff;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    font-size: 18px;
+  }
 }
-      .title {
-        align-self: center;
-      font-size: 25px;
-    
-    }
-
-    .dealership , .price {
-        margin: 10px 0;
-        padding: 10px 50px;
-        min-width: 200px;
-    }
-
-    .dealerTypeContainer {
-        bottom: 80px;
-    }
-    #js-error {
-        z-index: 10;
-        background: #fff;
-        height: fit-content;
-        position: absolute;
-        top: 0;
-        text-align: center;
-        font-size: 18px;
-    }
-    
-}
-
