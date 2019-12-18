@@ -294,7 +294,7 @@ function watchFilters(cordinates) {
     }
 
     if ($(".maxMiles").val() == "" || null || undefined) {
-      max = 10000000;
+      max = 1/0;
     } else {
       max = $(".maxMiles").val();
     }
@@ -313,7 +313,7 @@ function watchFilters(cordinates) {
     }
 
     if ($(".maxPrice").val() == "" || null || undefined) {
-      max = 10000000;
+      max = 1/0;
     } else {
       max = $(".maxPrice").val();
     }
@@ -454,10 +454,10 @@ function updateSearchBar() {
         case "":
           delete userSearch[i];
 
-        case "Price: 0-10000000":
+        case "Price: 0-Infinity":
           delete userSearch[i];
 
-        case "Miles: 0-10000000":
+        case "Miles: 0-Infinity":
           delete userSearch[i];
 
         case "body type":
