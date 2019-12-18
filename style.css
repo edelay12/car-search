@@ -398,7 +398,7 @@ input {
   flex-direction: column;
   min-width: 100%;
   margin-top: 20px;
-  height: 89vh;
+  height: 88vh;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 10px;
@@ -536,7 +536,7 @@ input {
   transform: translateX(-500px);
   transition: all 0.3s ease-in-out;
   background: #fff;
-  height: 90vh;
+  height: 88vh;
   border-radius: 10px;
   margin-top: 20px;
   box-shadow: var(--shadow);
