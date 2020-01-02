@@ -1,10 +1,9 @@
 window.onload = function() {
-  this.console.log("Site load successful");
   this.watchUser();
   this.newSearch();
 };
 //store
-const key = "mmJ36bPSxG67C3rNpvsYeWcT1TlA5wdf";
+const key = "q5tItGBQE8tbeGdJFxJs5npV3Kt7ZDDh";
 let start = 0;
 let row = 15;
 let currentParams = null;
@@ -192,7 +191,7 @@ function displayResults(ResponseJson) {
        </div>
    </section>
    <section class="links">
-   <button onclick="location.href='${
+   <button target='_blank' onclick="location.href='${
      DATA.dealerWeb
    }';" class="dealership">Contact Dealer</button>
                <h1 class="price">${formatNumber(DATA.price, "price")} </h1>
